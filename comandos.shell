@@ -1,0 +1,21 @@
+
+docker-compose build
+docker-compose run web rails new . --force --database=mysql
+#aca tiene que cambiar el dockerfile al segundo
+docker-compose build
+docker-compose up
+
+# si quiere cambiar db
+docker-compose run web rake db:create db:migrate
+
+# si estan mal instaladas
+docker-compose exec web bundle install
+
+#apague y vamosnos
+docker-compose down
+
+#no me acuerdo si hice esto
+docker-compose exec web rails db:create
+
+#para mas comandos
+docker-compose exec web {comando que quiera rails rake lo que quiera}

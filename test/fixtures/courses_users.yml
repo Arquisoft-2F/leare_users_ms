@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_id: 
+  progress: 1.5
+  score: 1.5
+  listed_on: 2024-03-07
+  last_Seen: 2024-03-07
+
+two:
+  course_id: 
+  progress: 1.5
+  score: 1.5
+  listed_on: 2024-03-07
+  last_Seen: 2024-03-07

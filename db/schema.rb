@@ -40,5 +40,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_025327) do
   end
 
   add_foreign_key "courses_users", "users"
-  add_foreign_key "courses_users", "users", name: "fk_user", on_update: :cascade
+  add_foreign_key "courses_users", "users", name: "fk_user", on_update: :cascade, on_delete: :cascade
 end

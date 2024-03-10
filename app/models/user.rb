@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :courses_users
+    has_many :courses_users, dependent: :destroy
     validates :nickname, :name, :email,:nationality, presence: true
     validates :nickname, :id, :email, uniqueness: true
     validates :nickname, :name ,length: { minimum: 3 }

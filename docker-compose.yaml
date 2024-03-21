@@ -1,6 +1,6 @@
 version: '3'
 services:
-  users_db:
+  usersDb:
     image: mariadb
     volumes:
       - ../db/leare_users_db:/var/lib/mysql
@@ -18,6 +18,6 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - users_db
+      - usersDb
     environment:
-      DATABASE_URL: mysql2://root:password@users_db/my_app_development
+      DATABASE_URL: mysql2://root:password@usersDb/my_app_development

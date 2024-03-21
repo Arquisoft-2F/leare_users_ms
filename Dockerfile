@@ -21,7 +21,11 @@ COPY . .
 RUN apt-get update -qq && apt-get install -y nodejs mariadb-client
 RUN gem install rails
 RUN bundle install
+#migre la db en cada build (se pierden datos)
+# RUN rails db:migrate
+# RUN sleep 60 && rails db:migrate
 
 EXPOSE 3000
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
+

@@ -1,25 +1,23 @@
 version: '3'
 services:
-  db:
+  users_db:
     image: mariadb
     volumes:
-      - db-data:/var/lib/mysql
+      - ../db/leare_users_db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: my_app_development
     ports:
       - "3307:3307"
 
-  web:
+#docker exec leare_users_ms-users_web-1 rails db:migrate
+  users_web:
     build: .
     volumes:
       - .:/app
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - users_db
     environment:
-      DATABASE_URL: mysql2://root:password@db/my_app_development
-
-volumes:
-  db-data:
+      DATABASE_URL: mysql2://root:password@users_db/my_app_development

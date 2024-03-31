@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         if user
             render json: {success:true, user:true}, status:200
         else
-            render json: {success: false, message: 'Unable to get User'}, status:400
+            render json: {success: false, message: 'User not found'}, status:400
         end
     end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         if user
             render json: user.as_json(root: false), status:200
         else
-            render json: {success: false, message: 'Unable to get User'}, status:400
+            render json: {success: false, message: 'User not found'}, status:400
         end
     end
 
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
         if user.save
             render json: user.as_json(root: false), status:201
         else
-            render json: {success: false, message: "Unable to create User"}, status:400
+            render json: {success: false, message: user.errors.messages}, status:400
         end
     end
 
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
             user.update!(edit_user_params)
             render json: user.as_json(root: false), status:200
         else
-            render json: {success: false, message: 'Unable to update User'}, status:400
+            render json: {success: false, message: user.errors.messages}, status:400
         end
     end
 
@@ -50,10 +50,10 @@ class UsersController < ApplicationController
             if courses
                 render json: courses.as_json(root: false), status:200
             else
-                render json: {success: false, message: 'Unable to find courses'}, status:400
+                render json: {success: false, message: 'Enrollment not found'}, status:400
             end
         else
-            render json: {success: false, message: 'Unable to find user'}, status:400
+            render json: {success: false, message: 'Uer not found'}, status:400
         end    
     end
 

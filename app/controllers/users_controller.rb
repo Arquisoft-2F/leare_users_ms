@@ -88,7 +88,7 @@ class UsersController < ApplicationController
     end
 
     def edit_user_params
-        params.require(:user).permit(:nickname,:name,:lastname,:picture_id, :nationality,:web_site,:biography,:twitter_link,:linkedin_link,:facebook_link)
+        params.require(:user).permit(:nickname,:name,:lastname,:picture_id, :nationality,,:email,:web_site,:biography,:twitter_link,:linkedin_link,:facebook_link)
     end
 
     def courses_params

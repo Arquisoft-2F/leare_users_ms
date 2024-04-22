@@ -60,10 +60,14 @@ class UsersController < ApplicationController
     def isenroll
         user=User.find(params[:id])
         if user
-            courses=CoursesUser.find([params[:c_id],params[:id]])
-            if courses
-                render json: courses.as_json(root: false), status:200
-            else
+            begin
+                courses=CoursesUser.find([params[:c_id],params[:id]])
+                if courses
+                    render json: courses.as_json(root: false), status:200
+                else
+                    render json: {success: false, message: 'Not enrolled'}, status:400
+                end
+            rescue =>e
                 render json: {success: false, message: 'Not enrolled'}, status:400
             end
         else

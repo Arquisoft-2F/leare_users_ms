@@ -65,10 +65,10 @@ class UsersController < ApplicationController
                 if courses
                     render json: courses.as_json(root: false), status:200
                 else
-                    render json: {success: false, message: 'Not enrolled'}, status:400
+                    render json: {success: false, message: 'Not enrolled'}, status:200
                 end
             rescue =>e
-                render json: {success: false, message: 'Not enrolled'}, status:400
+                render json: {success: false, message: 'Not enrolled'}, status:200
             end
         else
             render json: {success: false, message: 'Unable to find user'}, status:400
